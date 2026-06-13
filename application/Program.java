@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import entities.Pessoa;
 import entities.PessoaFisica;
+import entities.PessoaJuridica;
 
 public class Program {
 
@@ -20,24 +21,37 @@ public class Program {
 		List<Pessoa> list = new ArrayList<>();
 		
 		for(int i = 1; i <= n; i++) {
-			sc.nextLine();
+	
+			System.out.println("Pessoa Física ou Juridica (f/j)");
+			char ch = sc.next().charAt(0);
 			System.out.println("nome: ");
+			sc.nextLine();
 			String name = sc.nextLine();
 			System.out.print("gasto anual: ");
 			double gastoAnual = sc.nextDouble();
-			System.out.print("gasto saude: ");
-			double gastosSaude = sc.nextDouble();
 			
+			if(ch == 'f') {
+				System.out.print("gasto saude: ");
+				double gastosSaude = sc.nextDouble();
+				list.add(new PessoaFisica(name, gastoAnual , gastosSaude));
+			}
 			
-			list.add(new PessoaFisica(name, gastoAnual , gastosSaude));
-			
+			if(ch == 'j') {
+				System.out.println("Quantidade de Funcionarios: ");
+				int qtdFuncionarios = sc.nextInt();
+				list.add(new PessoaJuridica(name, gastoAnual, qtdFuncionarios));
+			}
 		}
-		System.out.println("TAXES PAID: ");
 		
+		System.out.println();
+		System.out.println("TAXES PAID: ");
+		double total = 0;
 		for(Pessoa p : list) {
 			System.out.println(p.toString());
+			total+=p.totalTaxes();
 		}
-		
+		System.out.println();
+		System.out.println("Total: " + String.format(" $ %.2f", total));
 		sc.close();
 	}
 
