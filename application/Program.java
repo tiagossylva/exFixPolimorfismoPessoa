@@ -26,21 +26,22 @@ public class Program {
 			char ch = sc.next().charAt(0);
 			System.out.println("nome: ");
 			sc.nextLine();
-			String name = sc.nextLine();
+			String nome = sc.nextLine();
 			System.out.print("gasto anual: ");
 			double gastoAnual = sc.nextDouble();
 			
 			if(ch == 'f') {
 				System.out.print("gasto saude: ");
 				double gastosSaude = sc.nextDouble();
-				list.add(new PessoaFisica(name, gastoAnual , gastosSaude));
+				list.add(new PessoaFisica(nome, gastoAnual , gastosSaude));
 			}
 			
 			if(ch == 'j') {
 				System.out.println("Quantidade de Funcionarios: ");
 				int qtdFuncionarios = sc.nextInt();
-				list.add(new PessoaJuridica(name, gastoAnual, qtdFuncionarios));
+				list.add(new PessoaJuridica(nome, gastoAnual, qtdFuncionarios));
 			}
+			sc.nextLine();
 		}
 		
 		System.out.println();
@@ -48,7 +49,7 @@ public class Program {
 		double total = 0;
 		for(Pessoa p : list) {
 			System.out.println(p.toString());
-			total+=p.totalTaxes();
+			total+=p.Taxa();
 		}
 		System.out.println();
 		System.out.println("Total: " + String.format(" $ %.2f", total));

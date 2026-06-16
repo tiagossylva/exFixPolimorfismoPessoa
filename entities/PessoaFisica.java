@@ -9,8 +9,8 @@ public class PessoaFisica extends Pessoa{
 	}
 	
 	
-	public PessoaFisica(String name, Double rendaAnual, Double gastosSaude) {
-		super(name, rendaAnual);
+	public PessoaFisica(String nome, Double rendaAnual, Double gastosSaude) {
+		super(nome, rendaAnual);
 		this.gastosSaude = gastosSaude;
 	}
 
@@ -23,13 +23,13 @@ public class PessoaFisica extends Pessoa{
 	}
 
 	@Override
-	public Double totalTaxes() {
+	public Double Taxa() {
 		double imposto = 0;
-		if( rendaAnual <= 20000.00) {
-			imposto = (rendaAnual * 0.15) - (gastosSaude * 0.50);
+		if( getRendaAnual() <= 20000.00) {
+			imposto = (getRendaAnual() * 0.15) - (gastosSaude * 0.50);
 		}
 		else {
-				imposto = (rendaAnual * 0.25) - (gastosSaude * 0.50);
+				imposto = (getRendaAnual() * 0.25) - (gastosSaude * 0.50);
 		}
 		return imposto;
 	}
@@ -37,8 +37,6 @@ public class PessoaFisica extends Pessoa{
 
 	@Override
 	public String toString() {
-		return name + ": " +  String.format(" $ %.2f", totalTaxes());
+		return getNome()+ ": " +  String.format(" $ %.2f", Taxa());
 	}
-	
-
 }

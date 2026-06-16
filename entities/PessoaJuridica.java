@@ -21,20 +21,20 @@ public class PessoaJuridica extends Pessoa {
 		this.numeroFuncionarios = numeroFuncionarios;
 	}
 	@Override
-	public Double totalTaxes() {
+	public Double Taxa() {
 		double imposto = 0;
 		if( numeroFuncionarios <= 10) {
-			imposto = rendaAnual * 0.16;
+			imposto = getRendaAnual() * 0.16;
 		}
 		else {
-				imposto = rendaAnual * 0.14;
+				imposto = getRendaAnual() * 0.14;
 		}
 		return imposto;
 	}
 
 	@Override
 	public String toString() {
-		return super.name + ": " +  String.format(" $ %.2f", totalTaxes());
+		return getNome() + ": " +  String.format(" $ %.2f", Taxa());
 	}
 	
 

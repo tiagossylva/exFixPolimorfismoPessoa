@@ -1,25 +1,25 @@
 package entities;
 
 public abstract class Pessoa {
-	protected String name;
-	protected Double rendaAnual;
+	private String nome;
+	private Double rendaAnual;
 	
 	public Pessoa() {
 		
 	}
 
-	public Pessoa(String name, Double rendaAnual) {
+	public Pessoa(String nome, Double rendaAnual) {
 		super();
-		this.name = name;
+		this.nome = nome;
 		this.rendaAnual = rendaAnual;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String nome) {
+		this.nome = nome;
 	}
 	
 	public Double getRendaAnual() {
@@ -30,7 +30,7 @@ public abstract class Pessoa {
 		this.rendaAnual = rendaAnual;
 	}
 
-	public abstract Double totalTaxes();
+	public abstract Double Taxa();
 	
 	
 }
