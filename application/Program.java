@@ -41,14 +41,13 @@ public class Program {
 				int qtdFuncionarios = sc.nextInt();
 				list.add(new PessoaJuridica(nome, gastoAnual, qtdFuncionarios));
 			}
-			sc.nextLine();
 		}
 		
 		System.out.println();
 		System.out.println("TAXES PAID: ");
 		double total = 0;
 		for(Pessoa p : list) {
-			System.out.println(p.toString());
+			System.out.println(p.getNome() + ": " + String.format(" $ %.2f", p.Taxa()));
 			total+=p.Taxa();
 		}
 		System.out.println();

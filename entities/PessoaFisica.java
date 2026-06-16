@@ -33,10 +33,4 @@ public class PessoaFisica extends Pessoa{
 		}
 		return imposto;
 	}
-
-
-	@Override
-	public String toString() {
-		return getNome()+ ": " +  String.format(" $ %.2f", Taxa());
-	}
 }
